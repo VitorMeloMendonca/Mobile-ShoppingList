@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Shopping</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Amount</ion-label>
+      <ion-input type="number" [(ngModel)]="item.Amount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Product</ion-label>
+      <ion-select [(ngModel)]="item.ItemProduct">
+        <ion-option *ngFor="let item of listProdutcts" [value]="item">{{item.Name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Observation</ion-label>
+      <ion-input type="text" [(ngModel)]="item.Observation"></ion-input>
+    </ion-item>
+  </ion-list>
+
+
+  <div padding>
+    <button ion-button full (click)="add()">Add</button>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let item of shoppingList.Items">
+      <h3><span>Product:</span> {{item.ItemProduct.Name}} </h3>
+      <h4><span>Amount:</span> {{item.Amount}}</h4>
+      <p *ngIf="item.Observation != null"><span>Observation: </span>{{item.Observation}}</p>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <button ion-button full (click)="save()">Save</button>
+  </div>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Product
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input [(ngModel)]="product.Name" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full (click)="save(product)">Save</button>
+</ion-content>
